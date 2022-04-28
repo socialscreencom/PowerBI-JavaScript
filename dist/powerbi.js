@@ -6059,6 +6059,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Response messages re-use tracking properties from a previous request message.
 	     */
 	    WindowPostMessageProxy.prototype.sendResponse = function (targetWindow, message, trackingProperties) {
+	        if(!targetWindow) {
+	            return;
+	        }
 	        this.addTrackingProperties(message, trackingProperties);
 	        if (this.logMessages) {
 	            console.log(this.name + " Sending response:");
